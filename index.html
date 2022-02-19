@@ -6,7 +6,6 @@
 </head>
 <body>
 <div id="menu-block"></div>
-<script src="lesson1.js"></script>
 <script src="MenuItem.js"></script>
 <script src="Menu.js"></script>
 <script>
@@ -15,12 +14,27 @@
         let menuBlock = document.getElementById('menu-block');
 
         let menu = new Menu('my', 'my', [
-            new MenuItem('/', 'Home'),
-            new MenuItem('/blog', 'Blog'),
-            new MenuItem('/services', 'Services'),
-            // new SubMenu('me', 'me', [])
+            new MenuItem('#', 'Home'),
+            new MenuItem('#', 'Blog'),
+            new MenuItem('#', 'Services'),
         ]);
-        menuBlock.innerHTML = menu.render();
+        let subMenu = new SubMenu ('mySub', 'mySub', [
+            new MenuItem('#', 'Basket'),
+            new MenuItem('#', 'About'),
+            new MenuItem('#', 'Contact'),
+        ]);
+        let button = new Button('button', 'button', 'Отключить меню');
+        menuBlock.innerHTML = menu.render() + button.getButton();
+        button.onclick = button.clickButton();
+        
+        subMenu.clickSubMenu();
+        //let subMenuBlock = document.getElementsByClassName('sub-menu-block');
+        //subMenuBlock.innerHTML = subMenu.render();
+
+
+
+        
+
     }
 </script>
 </body>
