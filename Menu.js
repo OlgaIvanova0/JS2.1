@@ -44,7 +44,6 @@ class SubMenu extends Menu{
         const elems = document.querySelectorAll(`li`);
         for(let i = 0; i< elems.length; i++) {
             let a = elems[i].querySelector('a').cloneNode(true);
-            console.log(a);
             elems[i].addEventListener ('click', () =>{
                 elems[i].innerHTML = this.render();
                 const refEl = elems[i].querySelector('ul');
