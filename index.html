@@ -6,8 +6,13 @@
 </head>
 <body>
 <div id="menu-block"></div>
+<div id="hamburger">
+    <img src="gamb.jpg" alt="Gamburger"><br>
+    <button id="newGamb">Собери свой гамбургер</button>
+</div>
 <script src="MenuItem.js"></script>
 <script src="Menu.js"></script>
+<script src="Gamburger.js"></script>
 <script>
     window.onload = () => {
         // DOM ready
@@ -26,13 +31,11 @@
         let button = new Button('button', 'button', 'Отключить меню');
         menuBlock.innerHTML = menu.render() + button.getButton();
         button.onclick = button.clickButton();
-        
-        subMenu.clickSubMenu();
-        
-
-
-        
-
+        subMenu.clickSubMenu(); 
+        //собираем бургер
+        let gamb = new Gamburger(0, 0, 0, 0, 0);
+        let newGamburger = document.getElementById('newGamb');
+        newGamburger.onclick = gamb.newGamb();
     }
 </script>
 </body>
