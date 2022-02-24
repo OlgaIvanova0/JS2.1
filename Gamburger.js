@@ -10,6 +10,7 @@ const questions = {
 };
 
 
+
 class Gamburger {
     constructor(size, stuffing, topping, price, calories, hambProperties){
         this.size = size;
