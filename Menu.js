@@ -24,8 +24,7 @@ class Button {
         this.buttonText = buttonText;
     }
     getButton(){
-        let button = `<button class="${this.className}" id="${this.id}">${this.buttonText}</button>`;
-        return button;
+        return `<button class="${this.className}" id="${this.id}">${this.buttonText}</button>`;
 
     }
     clickButton(){
@@ -43,11 +42,11 @@ class SubMenu extends Menu{
     clickSubMenu(){
         const elems = document.querySelectorAll(`li`);
         for(let i = 0; i< elems.length; i++) {
-            let a = elems[i].querySelector('a').cloneNode(true);
+            let copyMainMenu = elems[i].querySelector('a').cloneNode(true);
             elems[i].addEventListener ('click', () =>{
                 elems[i].innerHTML = this.render();
-                const refEl = elems[i].querySelector('ul');
-                elems[i].insertBefore(a, refEl);  
+                const subMenu = elems[i].querySelector('ul');
+                elems[i].insertBefore(copyMainMenu, subMenu);  
             });
             
         };

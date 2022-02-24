@@ -33,7 +33,51 @@
         button.onclick = button.clickButton();
         subMenu.clickSubMenu(); 
         //собираем бургер
-        let gamb = new Gamburger(0, 0, 0, 0, 0);
+        let gamb = new Gamburger(0, 0, 0, 0, 0, {
+            bigHamb:{
+                name: 'большой',
+                price: 100,
+                calories: 40,
+            },
+            smallHamb:{
+                name: 'маленький',
+                price: 50,
+                calories: 20,
+            },
+            cheeseStuff:{
+                name:'сыр',
+                price: 10,
+                calories: 20,
+            },    
+    
+            saladStuff: {
+                name: 'салат',
+                price: 20,
+                calories: 5,
+            },
+    
+            potatoStuff: {
+                name: 'картофель',
+                price: 15,
+                calories: 10,
+            },
+    
+            seasoningTopping: {
+                name: 'специи',
+                price: 15,
+                calories: 0,
+            },     
+    
+            sauceTopping: {
+                name: 'майонез',
+                price: 20,
+                calories: 5,
+            },
+    
+            noTopping: {
+                name: 'без добавок',
+            },
+        });
         let newGamburger = document.getElementById('newGamb');
         newGamburger.onclick = gamb.newGamb();
     }
