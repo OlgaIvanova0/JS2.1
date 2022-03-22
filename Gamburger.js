@@ -28,16 +28,15 @@ class Gamburger {
     //собираем новый бургер
     newGamb(){
         let newGambButton = document.getElementById('newGamb');
-        this.stuffingArr = [];
         newGambButton.addEventListener('click',() =>{
             this.calcSize(); //расчет цены и калорий для каждого размера бургера
             this.calcStuf();//расчет цены и калорий для каждой добавки для бургера
             
             let nextTopping = confirm(`${questions.wantNewStuffing}`); //возможность выбрать еще одну начинку
-            if(nextTopping === true){
+            if(nextTopping){//do while
                 this.calcStuf();
                 nextTopping = confirm(`${questions.wantNewStuffing}`);//возможность выбрать еще одну начинку
-                    if(nextTopping === true){
+                    if(nextTopping){
                        this.calcStuf();
                     };
             };
@@ -120,7 +119,7 @@ class Gamburger {
         let resultTopping = +prompt(`${questions.chooseToppingBurger}`);
             if(Number.isNaN(resultTopping)||resultTopping < 1||resultTopping > 3||!Number.isInteger(resultTopping)){
                 alert(`${questions.errorText}`);
-                resultTopping = +prompt(`${questions.chooseToppingBurger}`);
+                this.calcTopping();
             };
             if(resultTopping === 1) {
                 this.topping = this.hambProperties.seasoningTopping.name;
